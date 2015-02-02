@@ -1,0 +1,28 @@
+[PREDICTION]
+  EQUATION:
+	input={s, d, beta, delta, p, c, eta, eps, TC}
+
+; kgrow
+; kin
+; Imax
+; Cp
+; IC50
+; kout
+; Paw
+; tonset
+; Rdeg
+
+EQUATION:
+odeType = stiff
+;initial values
+Paw_0 =
+kin_0 = 
+
+
+
+
+ddt_Paw
+ddt_kin = -
+
+LVL = log10(VL)	
+	

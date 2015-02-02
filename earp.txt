@@ -1,0 +1,28 @@
+[PREDICTION]
+  EQUATION:
+input={kgrow, kin0, Imax, Cp, IC50, kout, tonset, Rdeg, Paw0}
+; kgrow = 0.718
+; kin0 = 12
+; Imax = 0.289
+; Cp 
+; IC50 = 22.7
+; kout = 0.137
+; tonset = 14.5
+; Rdeg = 0.128
+; Paw0 = 64.8
+
+EQUATION:
+odeType = stiff
+;initial values
+Paw_0 = Paw0
+kin_0 = kin0
+t0=0
+
+if t < tonset
+  ON = 0
+else
+  ON = 1
+end
+
+ddt_Paw = kgrow + ON*(kin*(1 - Imax*Cp/(IC50 + Cp)) - kout*Paw)
+ddt_kin = (-Rdeg*kin)*ON
